@@ -47,7 +47,6 @@ pipeline = transformers.pipeline(
     "low_cpu_mem_usage": True, # Reducir el uso de memoria en CPU
     },
     device_map="auto", # Seleccionar el dispositivo automáticamente (GPU si está disponible)
-    token="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",
 )
 
 # Obtener el modelo subyacente

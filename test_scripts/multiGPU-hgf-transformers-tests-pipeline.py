@@ -60,7 +60,6 @@ model = AutoModelForCausalLM.from_pretrained(
     device_map="auto",
     quantization_config=BitsAndBytesConfig(load_in_4bit=True), # Cargar en 4 bits,
     max_memory=max_memory_mapping, # Repartir la memoria entre los 4 GPU
-    token="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",
 )
 
 # Imprimir el dispositivo utilizado por el modelo
