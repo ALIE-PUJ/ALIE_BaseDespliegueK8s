@@ -57,7 +57,7 @@ model = AutoModelForCausalLM.from_pretrained(
 model = AutoModelForCausalLM.from_pretrained(
     model_id,
     torch_dtype=torch.bfloat16,
-    device_map="auto",
+    device_map='cuda',
     quantization_config=BitsAndBytesConfig(load_in_4bit=True), # Cargar en 4 bits,
     max_memory=max_memory_mapping, # Repartir la memoria entre los 4 GPU
 )
