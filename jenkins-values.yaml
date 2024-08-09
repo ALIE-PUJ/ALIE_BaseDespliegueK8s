@@ -397,7 +397,10 @@ controller:
     - workflow-aggregator:600.vb_57cdd26fdd7
     - git:5.3.0
     - configuration-as-code:1836.vccda_4a_122a_a_e
-    - docker:1.6.2
+    - docker-plugin:1.6.2
+    - docker-commons:443.v921729d5611d
+    - docker-workflow:580.vc0c340686b_54
+    - docker-compose-build-step:1.0
 
   # If set to false, Jenkins will download the minimum required version of all dependencies.
   # -- Download the minimum required version or latest version of all dependencies
