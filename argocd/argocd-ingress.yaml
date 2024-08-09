@@ -17,7 +17,7 @@ spec:
         - name: argocd-stripprefix
           namespace: argocd
     - kind: Rule
-      match: PathPrefix(`/argocd`) && Headers(`Content-Type`, `application/grpc`)
+      match: PathPrefix(`/argocd`) && Header(`Content-Type`, `application/grpc`)
       priority: 11
       services:
         - name: argocd-server
