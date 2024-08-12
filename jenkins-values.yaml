@@ -401,6 +401,7 @@ controller:
     - docker-commons:443.v921729d5611d
     - docker-workflow:580.vc0c340686b_54
     - docker-compose-build-step:1.0
+    - blueocean:1.27.14
 
   # If set to false, Jenkins will download the minimum required version of all dependencies.
   # -- Download the minimum required version or latest version of all dependencies
