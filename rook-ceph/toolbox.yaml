@@ -88,12 +88,6 @@ spec:
               watch_endpoints
           imagePullPolicy: IfNotPresent
           tty: true
-          securityContext:
-            runAsNonRoot: true
-            runAsUser: 2016
-            runAsGroup: 2016
-            capabilities:
-              drop: ["ALL"]
           env:
             - name: ROOK_CEPH_USERNAME
               valueFrom:
