@@ -5,6 +5,7 @@ helm repo add mongodb https://mongodb.github.io/helm-charts
 helm repo add milvus https://zilliztech.github.io/milvus-helm/
 helm repo add kubernetes-dashboard https://kubernetes.github.io/dashboard/
 helm repo add jenkinsci https://charts.jenkins.io
+helm repo add project-zot http://zotregistry.dev/helm-charts
 
 # Update Repos
 helm repo update
@@ -27,8 +28,11 @@ kubectl apply -f k8s-dashboard/
 helm upgrade --install jenkins jenkinsci/jenkins -f jenkins/jenkins-values.yaml -n jenkins --create-namespace
 kubectl apply -f jenkins/jenkins-dind-storage.yaml -n jenkins
 
-# Install
+# Install ArgoCD
 kubectl create namespace argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 kubectl apply -f argocd-ingress.yaml -n argocd
+
+# Install Zot Registry
+helm upgrade --install zot project-zot/zot -n zot --create-namespace
 
