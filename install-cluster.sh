@@ -6,6 +6,7 @@ helm repo add milvus https://zilliztech.github.io/milvus-helm/
 helm repo add kubernetes-dashboard https://kubernetes.github.io/dashboard/
 helm repo add jenkinsci https://charts.jenkins.io
 helm repo add project-zot http://zotregistry.dev/helm-charts
+helm repo add harbor https://helm.goharbor.io
 
 # Update Repos
 helm repo update
@@ -35,4 +36,7 @@ kubectl apply -f argocd-ingress.yaml -n argocd
 
 # Install Zot Registry
 helm upgrade --install zot project-zot/zot -n zot --create-namespace
+
+# Install Harbor Registry
+helm upgrade --install harbor harbor/harbor -f harbor-values.yaml -n harbor --create-namespace
 
