@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Get administrator access
+echo "Super-user required!"
+sudo echo "Successfully granted!" || echo "Failed sudo authentication"
+
 # Add Helm Repos
 helm repo add mongodb https://mongodb.github.io/helm-charts
 helm repo add milvus https://zilliztech.github.io/milvus-helm/
@@ -42,3 +46,9 @@ helm upgrade --install harbor harbor/harbor -f harbor-values.yaml -n harbor --cr
 
 # Configure Traefik
 sudo cp -fv traefik/traefik-config.yaml /var/lib/rancher/k3s/server/manifests/
+
+# Restart K3s
+echo Restarting K3s ...
+sudo systemctl restart k3s
+echo Restarted!
+
