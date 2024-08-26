@@ -40,3 +40,5 @@ helm upgrade --install zot project-zot/zot -n zot --create-namespace
 # Install Harbor Registry
 helm upgrade --install harbor harbor/harbor -f harbor-values.yaml -n harbor --create-namespace
 
+# Configure Traefik
+sudo cp -fv traefik/traefik-config.yaml /var/lib/rancher/k3s/server/manifests/
