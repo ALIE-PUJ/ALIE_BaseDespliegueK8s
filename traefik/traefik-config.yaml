@@ -380,6 +380,7 @@ spec:
     metrics:
       ## -- Enable metrics for internal resources. Default: false
       addInternals:
+      prometheus: null
 
       ## -- Prometheus is enabled by default.
       ## -- It can be disabled by setting "prometheus: null"
