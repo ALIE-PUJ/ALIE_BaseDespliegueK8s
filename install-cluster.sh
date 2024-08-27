@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Get administrator access
+echo "Super-user required!"
+sudo echo "Successfully granted!" || echo "Failed sudo authentication"
+
 # Add Helm Repos
 helm repo add mongodb https://mongodb.github.io/helm-charts
 helm repo add milvus https://zilliztech.github.io/milvus-helm/
@@ -32,11 +36,20 @@ kubectl apply -f jenkins/jenkins-dind-storage.yaml -n jenkins
 # Install ArgoCD
 kubectl create namespace argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
-kubectl apply -f argocd-ingress.yaml -n argocd
+kubectl apply -f argocd/argocd-config.yaml -n argocd
+kubectl apply -f argocd/argocd-ingress.yaml -n argocd
 
 # Install Zot Registry
 helm upgrade --install zot project-zot/zot -n zot --create-namespace
 
 # Install Harbor Registry
 helm upgrade --install harbor harbor/harbor -f harbor-values.yaml -n harbor --create-namespace
+
+# Configure Traefik
+sudo cp -fv traefik/traefik-config.yaml /var/lib/rancher/k3s/server/manifests/
+
+# Restart K3s
+echo Restarting K3s ...
+sudo systemctl restart k3s
+echo Restarted!
 
