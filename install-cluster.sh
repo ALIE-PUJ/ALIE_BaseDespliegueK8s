@@ -32,6 +32,7 @@ kubectl apply -f k8s-dashboard/
 # Install Jenkins
 helm upgrade --install jenkins jenkinsci/jenkins -f jenkins/jenkins-values.yaml -n jenkins --create-namespace
 kubectl apply -f jenkins/jenkins-dind-storage.yaml -n jenkins
+kubectl apply -n jenkins -f jenkins/jenkins-ingress.yaml
 
 # Install ArgoCD
 kubectl create namespace argocd
