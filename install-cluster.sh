@@ -36,7 +36,8 @@ kubectl apply -f jenkins/jenkins-dind-storage.yaml -n jenkins
 # Install ArgoCD
 kubectl create namespace argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
-kubectl apply -f argocd-ingress.yaml -n argocd
+kubectl apply -f argocd/argocd-config.yaml -n argocd
+kubectl apply -f argocd/argocd-ingress.yaml -n argocd
 
 # Install Zot Registry
 helm upgrade --install zot project-zot/zot -n zot --create-namespace
