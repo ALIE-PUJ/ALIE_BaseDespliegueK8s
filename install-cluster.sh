@@ -20,16 +20,8 @@ helm upgrade --install community-operator mongodb/community-operator -n mongodb 
 kubectl apply -f mongodbcommunity_cr.yaml -n mongodb
 
 # Install PostgreSQL
-helm upgrade --install postgresdb oci://registry-1.docker.io/bitnamicharts/postgresql-ha -n postgresdb --create-namespace
-
-# Upgrade PostgreSQL
-export PASSWORD=$(kubectl get secret --namespace "postgresdb" postgresdb-postgresql-ha-postgresql -o jsonpath="{.data.password}" | base64 -d)
-export REPMGR_PASSWORD=$(kubectl get secret --namespace "postgresdb" postgresdb-postgresql-ha-postgresql -o jsonpath="{.data.repmgr-password}" | base64 -d)
-export ADMIN_PASSWORD=$(kubectl get secret --namespace "postgresdb" postgresdb-postgresql-ha-pgpool -o jsonpath="{.data.admin-password}" | base64 -d)
-
 helm upgrade --install postgresdb oci://registry-1.docker.io/bitnamicharts/postgresql-ha -n postgresdb --create-namespace \
-        -f postgresdb-values.yaml --set postgresql.password=$PASSWORD --set postgresql.repmgrPassword=$REPMGR_PASSWORD \
-        --set pgpool.adminPassword=$ADMIN_PASSWORD
+        -f postgresdb-values.yaml
 
 # Install MilvusDB
 helm upgrade --install milvusdb milvus/milvus -n milvusdb -f milvus_values.yml --create-namespace
