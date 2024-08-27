@@ -4,5 +4,4 @@ metadata:
   name: traefik
   namespace: kube-system
 spec:
-  valuesContent: |-
-    
+  valuesContent: null
