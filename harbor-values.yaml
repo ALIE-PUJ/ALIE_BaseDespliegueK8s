@@ -136,7 +136,7 @@ persistence:
       storageClass: ""
       subPath: ""
       accessMode: ReadWriteOnce
-      size: 5Gi
+      size: 1024Gi
       annotations: {}
     jobservice:
       jobLog:
@@ -153,7 +153,7 @@ persistence:
       storageClass: ""
       subPath: ""
       accessMode: ReadWriteOnce
-      size: 1Gi
+      size: 100Gi
       annotations: {}
     # If external Redis is used, the following settings for Redis will
     # be ignored
@@ -162,7 +162,7 @@ persistence:
       storageClass: ""
       subPath: ""
       accessMode: ReadWriteOnce
-      size: 1Gi
+      size: 100Gi
       annotations: {}
     trivy:
       existingClaim: ""

@@ -20,7 +20,8 @@ helm upgrade --install community-operator mongodb/community-operator -n mongodb 
 kubectl apply -f mongodbcommunity_cr.yaml -n mongodb
 
 # Install PostgreSQL
-helm upgrade --install postgresdb oci://registry-1.docker.io/bitnamicharts/postgresql-ha -n postgresdb --create-namespace
+helm upgrade --install postgresdb oci://registry-1.docker.io/bitnamicharts/postgresql-ha -n postgresdb --create-namespace \
+        -f postgresdb-values.yaml
 
 # Install MilvusDB
 helm upgrade --install milvusdb milvus/milvus -n milvusdb -f milvus_values.yml --create-namespace
@@ -32,6 +33,7 @@ kubectl apply -f k8s-dashboard/
 # Install Jenkins
 helm upgrade --install jenkins jenkinsci/jenkins -f jenkins/jenkins-values.yaml -n jenkins --create-namespace
 kubectl apply -f jenkins/jenkins-dind-storage.yaml -n jenkins
+kubectl apply -n jenkins -f jenkins/jenkins-ingress.yaml
 
 # Install ArgoCD
 kubectl create namespace argocd
