@@ -21,6 +21,7 @@ spec:
         - name: userAdminAnyDatabase
           db: admin
       scramCredentialsSecretName: my-scram
+      connectionStringSecretName: connection-str
   additionalMongodConfig:
     storage.wiredTiger.engineConfig.journalCompressor: zlib
 
