@@ -17,4 +17,6 @@ ff02::2 ip6-allrouters
 10.195.34.20 harbor.alie.javeriana.edu.co
 10.195.34.20 argocd.alie.javeriana.edu.co
 10.195.34.20 jenkins.alie.javeriana.edu.co
+10.195.34.20 adminer.alie.javeriana.edu.co
+10.195.34.20 mongex.alie.javeriana.edu.co
 
