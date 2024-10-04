@@ -13,6 +13,7 @@ ff02::2 ip6-allrouters
 10.195.34.11 kworker4
 10.195.34.13 kworker5
 
+10.195.34.20 alie.javeriana.edu.co
 10.195.34.20 harbor.alie.javeriana.edu.co
 10.195.34.20 argocd.alie.javeriana.edu.co
 10.195.34.20 jenkins.alie.javeriana.edu.co
