@@ -10,6 +10,8 @@ helm repo add milvus https://zilliztech.github.io/milvus-helm/
 helm repo add kubernetes-dashboard https://kubernetes.github.io/dashboard/
 helm repo add jenkinsci https://charts.jenkins.io
 helm repo add harbor https://helm.goharbor.io
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo add grafana https://grafana.github.io/helm-charts
 
 # Update Repos
 helm repo update
@@ -50,6 +52,12 @@ sudo cp -fv traefik/traefik-config.yaml /var/lib/rancher/k3s/server/manifests/
 echo Restarting K3s ...
 sudo systemctl restart k3s
 echo Restarted!
+
+# Install Prometheus
+helm install monitoring -n monitoring --create-namespace prometheus-community/prometheus
+
+# Install Grafana
+helm install grafana grafana/grafana -n monitoring
 
 helm repo add emberstack https://emberstack.github.io/helm-charts
 helm repo update
