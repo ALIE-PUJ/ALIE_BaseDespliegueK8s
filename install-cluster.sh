@@ -58,6 +58,7 @@ helm install monitoring -n monitoring --create-namespace prometheus-community/pr
 
 # Install Grafana
 helm install grafana grafana/grafana -n monitoring
+kubectl apply -f grafana-ingress.yaml -n monitoring
 
 helm repo add emberstack https://emberstack.github.io/helm-charts
 helm repo update
