@@ -6,7 +6,8 @@ export REPMGR_PASSWORD=$(kubectl get secret --namespace "postgresdb" postgresdb-
 
 export ADMIN_PASSWORD=$(kubectl get secret --namespace "postgresdb" postgresdb-postgresql-ha-pgpool -o jsonpath="{.data.admin-password}" | base64 -d)
 
-echo "PASSWORD=$PASSWORD"
-echo "REPMGR_PASSWORD=$REPMGR_PASSWORD"
-echo "ADMIN_PASSWORD=$ADMIN_PASSWORD"
+echo "URL = postgresdb-postgresql-ha-pgpool.postgresdb.svc.cluster.local"
+echo "PASSWORD = $PASSWORD"
+echo "REPMGR_PASSWORD = $REPMGR_PASSWORD"
+echo "ADMIN_PASSWORD = $ADMIN_PASSWORD"
 
