@@ -1,4 +1,6 @@
-# Configuración de Despliegue del Cluster ALIE
+# Configuración de Despliegue del Cluster ALIE - ALIE_BaseDespliegueK8s
+
+Módulo de ALIE que contiene las configuraciones necesarias para desplegar el proyecto en un clúster de Kubernetes, asegurando escalabilidad y disponibilidad.
 
 ## CockroachDB
 
